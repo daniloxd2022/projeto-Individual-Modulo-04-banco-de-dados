@@ -7,7 +7,7 @@ Perguntas sobre o banco de dados
 - Existem outras entidades além dessas três?
 
 Resposta:
-Depende da necessidade da aplicação. De acordo com as informações dadas, parece que só há as entidades de cursos, turmas e alunos. No entanto, se houver necessidade de incluir mais informações, pode ser necessário incluir outras entidades como por exemplo instituição,polos e dentre outros.
+Depende da necessidade da aplicação. De acordo com as informações dadas, parece que só há as entidades de cursos, turmas e alunos. No entanto, se houver necessidade de incluir mais informações, pode ser necessário incluir outras entidades como por exemplo facilitadores,instituição,polos e dentre outros.
 
 - Quais são os principais campos e tipos?
 
