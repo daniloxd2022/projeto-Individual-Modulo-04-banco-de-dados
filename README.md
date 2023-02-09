@@ -42,3 +42,5 @@ ID da Turma (chave estrangeira, inteiro)
 Resposta:
 
 As entidades estão relacionadas de forma que uma turma pertence a um curso e um aluno pertence a uma turma. Isso é representado na modelagem de banco de dados através de chaves estrangeiras, onde a chave primária de uma entidade é referenciada como uma chave estrangeira em outra entidade.
+
+![](https://github.com/daniloxd2022/projeto-Individual-Modulo-04-banco-de-dados/blob/adb9e603d0dd5c2d86b54a9b4379070a2b64773a/SQL/modelo.png)
