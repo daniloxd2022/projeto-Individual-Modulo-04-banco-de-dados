@@ -32,16 +32,32 @@ Turmas:
 
 ID (chave primária, inteiro)
 Nome (varchar)
-ID do Curso (chave estrangeira, inteiro)
-Início (data)
-Término (data)
+Turno (varchar)
+numero_de_alunos (Inteiro)
+aluno_id(Inteiro)
+professor_id (inteiro)
 
 Alunos:
 
 ID (chave primária, inteiro)
 Nome (varchar)
+CPF(varchar)
+sexo(char)
+contato(varchar)
+cep(varchar)
 Endereço de e-mail (varchar)
-ID da Turma (chave estrangeira, inteiro)
+Nascimento DATE
+
+Professores:
+
+ID (chave primária, inteiro)
+Nome (varchar)
+CPF(varchar)
+sexo(char)
+contato(varchar)
+cep(varchar)
+Endereço de e-mail (varchar)
+Nascimento DATE
 
 
 
