@@ -62,12 +62,12 @@ FOREIGN KEY(cursos_id) REFERENCES cursos(id)
 
 INSERT INTO alunos (nome, cpf, sexo, contato, cep, email, nascimento)
 VALUES
-('Peter Parker', '1112223334445', 'M', '11 11111-2222', '11122233', 'peterparker@email.com', '2000-05-05'),
+('Peter Parker', '111.222.333-45', 'M', '11 11111-2222', '11122233', 'peterparker@email.com', '2000-05-05'),
 ('Mary Jane', '2223334444555', 'F', '22 22222-3333', '22233344', 'maryjane@email.com', '1999-07-07');
 
 INSERT INTO professores (nome, cpf, sexo, contato, cep, email, nascimento)
 VALUES
-('Dr. Strange', '3334445556666', 'M', '33 33333-4444', '33344455', 'drstrange@email.com', '1969-12-13'),
+('Dr. Strange', '333.444.555-66', 'M', '33 33333-4444', '33344455', 'drstrange@email.com', '1969-12-13'),
 ('Prof. X', '4445556666777', 'M', '44 44444-5555', '44455566', 'profx@email.com', '1960-07-14');
 
 INSERT INTO turmas (nome, turno, numero_de_alunos, aluno_id, professor_id)

@@ -15,6 +15,12 @@ Resposta:
 
 Isso depende do que você deseja armazenar em cada entidade. Algumas sugestões de campos para cada entidade podem incluir:
 
+Unidades:
+ID (chave primária, inteiro)
+Nome (varchar)
+CEP (varchar)
+Cursos_id(chave estrangeira,inteiro)
+
 Cursos:
 
 ID (chave primária, inteiro)
@@ -37,10 +43,12 @@ Nome (varchar)
 Endereço de e-mail (varchar)
 ID da Turma (chave estrangeira, inteiro)
 
+
+
 - Como essas entidades estão relacionadas?
 
 Resposta:
 
-As entidades estão relacionadas de forma que uma turma pertence a um curso e um aluno pertence a uma turma. Isso é representado na modelagem de banco de dados através de chaves estrangeiras, onde a chave primária de uma entidade é referenciada como uma chave estrangeira em outra entidade.
+As entidades estão relacionadas de forma que uma turma pertence a um curso e curso pertence a unidade e um aluno e professor pertence a uma turma. Isso é representado na modelagem de banco de dados através de chaves estrangeiras, onde a chave primária de uma entidade é referenciada como uma chave estrangeira em outra entidade.
 
 ![](https://github.com/daniloxd2022/projeto-Individual-Modulo-04-banco-de-dados/blob/adb9e603d0dd5c2d86b54a9b4379070a2b64773a/SQL/modelo.png)
