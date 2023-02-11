@@ -1,48 +1,88 @@
-CREATE DATABASE resilia;
-
+CREATE DATABASE resilia
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
 USE resilia;
 
--- Criando tabela de cursos
-CREATE TABLE cursos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(255) NOT NULL,
-  descricao TEXT NOT NULL,
-  carga_horaria INT NOT NULL
-);
 
--- Criando tabela de turmas
-CREATE TABLE turmas (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(255) NOT NULL,
-  id_curso INT NOT NULL,
-  inicio DATE NOT NULL,
-  termino DATE NOT NULL,
-  FOREIGN KEY (id_curso) REFERENCES cursos(id)
-);
-
--- Criando tabela de alunos
 CREATE TABLE alunos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  id_turma INT NOT NULL,
-  FOREIGN KEY (id_turma) REFERENCES turmas(id)
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100),
+cpf VARCHAR(14),
+sexo CHAR(1),
+contato VARCHAR(22),
+cep VARCHAR(8),
+email VARCHAR(100),
+nascimento DATE,
+PRIMARY KEY(id)
 );
 
--- Adicionando dados de exemplo à tabela de cursos
-INSERT INTO cursos (nome, descricao, carga_horaria) 
-VALUES 
-("Curso de Desenvolvimento Web", "Aprenda a desenvolver aplicações web", 40),
-("Curso de Banco de Dados", "Aprenda a modelar e gerenciar bancos de dados", 30);
+CREATE TABLE professores (
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100),
+cpf VARCHAR(14),
+sexo CHAR(1),
+contato VARCHAR(22),
+cep VARCHAR(8),
+email VARCHAR(100),
+nascimento DATE,
+PRIMARY KEY(id)
+);
 
--- Adicionando dados de exemplo à tabela de turmas
-INSERT INTO turmas (nome, id_curso, inicio, termino) 
-VALUES 
-("Turma 1 - Desenvolvimento Web", 1, "2023-02-01", "2023-03-01"),
-("Turma 2 - Banco de Dados", 2, "2023-03-01", "2023-04-01");
+CREATE TABLE turmas (
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100),
+turno VARCHAR(6),
+numero_de_alunos INT,
+aluno_id BIGINT,
+professor_id BIGINT,
+PRIMARY KEY(id),
+FOREIGN KEY(aluno_id) REFERENCES alunos(id),
+FOREIGN KEY(professor_id) REFERENCES professores(id)
+);
 
--- Adicionando dados de exemplo à tabela de alunos
-INSERT INTO alunos (nome, email, id_turma) 
-VALUES 
-("João da Silva", "joao@email.com", 1),
-("Maria da Silva", "maria@email.com", 2);
+CREATE TABLE cursos(
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100),
+descricao TEXT,
+data_comeco DATE,
+data_termino DATE,
+turmas_id BIGINT,
+PRIMARY KEY(id),
+FOREIGN KEY(turmas_id) REFERENCES turmas(id)
+);
+
+CREATE TABLE unidades(
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100),
+cep VARCHAR(8),
+cursos_id BIGINT,
+PRIMARY KEY(id),
+FOREIGN KEY(cursos_id) REFERENCES cursos(id)
+);
+
+INSERT INTO alunos (nome, cpf, sexo, contato, cep, email, nascimento)
+VALUES
+('Peter Parker', '1112223334445', 'M', '11 11111-2222', '11122233', 'peterparker@email.com', '2000-05-05'),
+('Mary Jane', '2223334444555', 'F', '22 22222-3333', '22233344', 'maryjane@email.com', '1999-07-07');
+
+INSERT INTO professores (nome, cpf, sexo, contato, cep, email, nascimento)
+VALUES
+('Dr. Strange', '3334445556666', 'M', '33 33333-4444', '33344455', 'drstrange@email.com', '1969-12-13'),
+('Prof. X', '4445556666777', 'M', '44 44444-5555', '44455566', 'profx@email.com', '1960-07-14');
+
+INSERT INTO turmas (nome, turno, numero_de_alunos, aluno_id, professor_id)
+VALUES
+('Class A', 'evening', 15, 1, 2),
+('Class B', 'morning', 25, 2, 1);
+
+INSERT INTO cursos (nome, descricao, data_comeco, data_termino, turmas_id)
+VALUES
+('History 101', 'Intro to History', '2022-03-01', '2022-11-30', 1),
+('English 102', 'Intro to English', '2022-04-01', '2022-08-31', 2);
+
+INSERT INTO unidades (nome, cep, cursos_id)
+VALUES
+('Campus C', '22233344', 1),
+('Campus D', '44455566', 2);
+
+
