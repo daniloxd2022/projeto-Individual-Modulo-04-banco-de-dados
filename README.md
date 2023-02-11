@@ -51,4 +51,4 @@ Resposta:
 
 As entidades estão relacionadas de forma que uma turma pertence a um curso e curso pertence a unidade e um aluno e professor pertence a uma turma. Isso é representado na modelagem de banco de dados através de chaves estrangeiras, onde a chave primária de uma entidade é referenciada como uma chave estrangeira em outra entidade.
 
-![](https://github.com/daniloxd2022/projeto-Individual-Modulo-04-banco-de-dados/blob/adb9e603d0dd5c2d86b54a9b4379070a2b64773a/SQL/modelo.png)
+![](https://github.com/daniloxd2022/projeto-Individual-Modulo-04-banco-de-dados/blob/b1fa69d82ca16d2d4ff45d74af82e1ddbf21a6c4/SQL/diagrama.png)
